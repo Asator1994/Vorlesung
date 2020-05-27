@@ -1,8 +1,16 @@
 #include "Sight.h"
 #include "Toilet.h"
+
 #include "User.h"
 
+#include "Account.h"
+#include "CurrentAccount.h"
+#include "HomeLoanSavingContract.h"
+#include "NightMoneyAccount.h"
+
 #include <iostream>
+
+#include <random>
 
 void locations() {
     Location* first {new Location(1, 2, "A simple location")};
@@ -33,10 +41,33 @@ void users() {
     user->print();
 }
 
+void accounts() {
+    std::mt19937 mt_rand(time(0));
+    Account* account1{ new CurrentAccount(mt_rand() % 1000000, 250500001, "Hans Wurst", 5000, 1.1, -3000) };
+    account1->addMoney(499);
+    Account* account2{ new CurrentAccount(mt_rand() % 1000000, 250500001, "Hans Wurst", 6000, 2.1, -6000) };
+    account2->addMoney(-6334);
+    Account* account3{ new HomeLoanSavingContract(mt_rand() % 1000000, 250500001, "Hans Wurst", 5000, 3.1, 6000000) };
+    account1->addMoney(3434);
+    Account* account4{ new HomeLoanSavingContract(mt_rand() % 1000000, 250500001, "Hans Wurst", 1000, 4.1, 2000000) };
+    account1->addMoney(4354);
+    Account* account5{ new NightMoneyAccount(mt_rand() % 1000000, 250500001, "Hans Wurst", 100, 5.1, 24) };
+    account1->addMoney(4334);
+    Account* account6{ new NightMoneyAccount(mt_rand() % 1000000, 250500001, "Hans Wurst", 1000, 6.1, 1200) };
+    account1->addMoney(134434);
+    account1->print();
+    account2->print();
+    account3->print();
+    account4->print();
+    account5->print();
+    account6->print();
+}
+
 int main()
 {
     // locations();
-    users();
+    // users();
+    accounts();
     std::cout << "Hello World!\n";
 }
 
