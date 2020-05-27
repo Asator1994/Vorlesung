@@ -10,7 +10,13 @@
 
 #include <iostream>
 
+#include <memory>
+
 #include <random>
+
+int randomNumber = 5;
+int anotherRandomNumber = 5;
+int andAnotherOne = 90;
 
 void locations() {
     Location* first {new Location(1, 2, "A simple location")};
@@ -63,11 +69,94 @@ void accounts() {
     account6->print();
 }
 
+int getNextNumber() {
+    return --randomNumber;
+}
+
+int getNextNumber(int a) {
+    return --randomNumber;
+}
+
+int getNextNumber(int a, int b) {
+    return --andAnotherOne;
+}
+int divide(int a, int b);
+
+void methodA() {
+    divide(1, 1);
+}
+void methodB() {
+    divide(2, 1);
+}
+void methodC() {
+    divide(1, 2);
+}
+void methodD() {
+    divide(0, 10);
+}
+void methodE() {
+    divide(13, 5);
+}
+void methodF() {
+    divide(13, 5);
+}
+void methodG() {
+    divide(13, 5);
+}
+void methodH() {
+    divide(13, 5);
+}
+void methodI() {
+    divide(13, 5);
+}
+void methodJ() {
+    divide(13, 5);
+}
+void methodK() {
+    divide(0, 0);
+}
+
+void callMethodsAToK() {
+    methodA();
+    methodB();
+    methodC();
+    methodD();
+    methodE();
+    methodF();
+    methodG();
+    methodH();
+    methodI();
+    methodJ();
+    methodK();
+}
+
+int divide(int a, int b) {
+    return a / b;
+}
+
+void debugging() {
+    int a = 723;
+    for (int i = 0; i < 100; i++) {
+        a += a / getNextNumber();
+    }
+    callMethodsAToK();
+    for (int i = 0; i < 100; i++) {
+        a += a / getNextNumber(a);
+    }
+    for (int i = 0; i < 100; i++) {
+        a += a / getNextNumber(a, a);
+    }
+}
+
 int main()
 {
     // locations();
     // users();
-    accounts();
+    //accounts();
+    debugging();
+
+
+
     std::cout << "Hello World!\n";
 }
 
