@@ -27,7 +27,8 @@ void SmartPerson::joinTeam(std::weak_ptr<SmartTeam> team)
 	// Die andere Methode macht zwar ggf. ein paar Dinge mehr mit, ist verwirrend und fehleranfällig.
 	// Überlegt euch das übertragen auf die reelle Welt: Muss eine Person prüfen, ob in einem Team
 	// genug Plätze frei sind, um beizutreten? Nein, diese Bedingung muss bereits im Voraus (oder eben
-	// im Nachhinein, wenn es etwas wie einen Mitgliedsantrag geben würde) irgendwo anders geprüft werden
+	// im Nachhinein, wenn es etwas wie einen Mitgliedsantrag geben würde) irgendwo anders geprüft werden.
+	// Únd vor allem der Eintrag in das Team ist dann nichts, was die Person tun darf
 	if (canJoinAnotherTeam()) {
 		m_teams.push_back(team);
 	}
